@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: chat-service
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python run.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: MONGODB_URL
+        sync: false
+      - key: MONGODB_DB_NAME
+        value: goodlife
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: JWT_ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 1440
+      - key: MAX_QUERY_LENGTH
+        value: 500
+      - key: DEFAULT_RESPONSE_TIMEOUT
+        value: 30 
